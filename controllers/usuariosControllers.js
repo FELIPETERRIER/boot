@@ -1,5 +1,6 @@
 const usuarios = require('../models/usuariosModels');
 
+
 const getUsuarios = async (req, res) => {
     try {
 
@@ -16,4 +17,4 @@ const getUsuarios = async (req, res) => {
     }
 }
 
-module.exports = [getUsuarios]
+module.exports = {getUsuarios}
