@@ -14,7 +14,8 @@ dotenv.config();
 
 
 //Usuarios
-app.get('/',usuariosControllers.getUsuarios)
+app.get('/',usuariosControllers.getUsuarios);
+app.post('/usuarios',usuariosControllers.postUsuarios)
 
 
 
