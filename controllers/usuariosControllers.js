@@ -3,8 +3,9 @@ const usuarios = require('../models/usuariosModels');
 
 const getUsuarios = async (req, res) => {
     try {
-
-        const todosUsuarios = await usuarios.getUsuarioModel();
+        const usuario= {...req.body} 
+        
+        const todosUsuarios = await usuarios.getUsuarioModel(usuario);
         res.status(200).json(todosUsuarios);
 
     } catch (error) {

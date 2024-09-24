@@ -3,6 +3,7 @@ const app = express();
 const port= 3001;
 const usuariosControllers = require( './controllers/usuariosControllers');
 const comprasControllers = require('./controllers/comprasControllers');
+const vendasControllers = require('./controllers/vendasControllers');
 
 
 app.use(express.json())
@@ -22,12 +23,9 @@ app.post('/usuarios',usuariosControllers.postUsuarios);
 app.get('/compras',comprasControllers.getCompras);
 app.post('/compras',comprasControllers.postCompras);
 
-
-
-
-
-
-
+//Vendas
+app.get('/vendas',vendasControllers.getVendas);
+app.post('/vendas',vendasControllers.postVendas);
 
 
 app.listen(port,()=>{

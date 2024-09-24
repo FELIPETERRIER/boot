@@ -2,15 +2,15 @@ const db = require('../dataBase/dataBase');
 
 
 const usuarios = {
-    getUsuarioModel: async () => {
+    getUsuarioModel: async (usuario) => {
         try {
-            const resultadoUsuario  = await db.query('select * from usuarios');
-           
+          
+            const resultadoUsuario  = await db.query('select * from usuarios', +usuario);  
             
             if (resultadoUsuario.rowCount == 0) {
                 throw "Nenhum usuario encontrado"
             }
-            return resultadoUsuario.rowCount;
+            return resultadoUsuario.rows;
         } catch (error) {
             throw error;
         }

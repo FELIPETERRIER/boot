@@ -4,7 +4,7 @@ const vendas = require('../models/vendasModels');
 const getVendas = async (req, res) => {
     try {
 
-        const todasVendas = await vendas.getCompraModel();
+        const todasVendas = await vendas.getVendasModel();
         res.status(200).json(todasVendas);
 
     } catch (error) {

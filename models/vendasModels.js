@@ -8,27 +8,27 @@ const vendas = {
            
             
             if (resultadoVendas.rowCount == 0) {
-                throw "Nenhuma compra realizada!"
+                throw "Nenhuma venda realizada!"
             }
             return resultadoVendas.rowCount;
         } catch (error) {
             throw error;
         }
     },
-    postVendasModel: async (vendas,nome) => {
+    /*postVendasModel: async (vendas,nome) => {
         try {
             const vendasUsuario = Object.values(vendas)
             
-            const resultadoVendas  = await db.query('INSERT into usuarios (nome) VALUES($1)returning ID  ',vendasUsuario);  
+            const resultadoVendas  = await db.query('INSERT into vendas (moeda,valor_em_real,quantidade) VALUES($1,$2,$3)returning ID  ',vendasUsuario);  
             
             if (resultadoVendas.rowCount == 0) {
-                throw "Falha no cadastro do usuario"
+                throw "Falha na venda"
             }
             return resultadoVendas.rows;
         } catch (error) {
             throw error;
         }
-    }
+    }*/
     
 }
 
