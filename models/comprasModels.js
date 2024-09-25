@@ -1,9 +1,13 @@
 const db = require('../dataBase/dataBase');
+const data = require('../apis/date')
 
 
 const compras = {
     getComprasModel: async () => {
         try {
+            console.log(data.dataAtual());
+            console.log(data.horAtual())
+
             const resultadoCompras  = await db.query('select * from compras');
            
             
