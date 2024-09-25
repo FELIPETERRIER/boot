@@ -3,8 +3,8 @@ const compras = require('../models/comprasModels');
 
 const getCompras = async (req, res) => {
     try {
-
-        const todascompras = await compras.getCompraModel();
+        const compra= {...req.body}    
+        const todascompras = await compras.getComprasModel();
         res.status(200).json(todascompras);
 
     } catch (error) {

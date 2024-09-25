@@ -11,10 +11,6 @@ app.use(express.urlencoded({extended: true}));
 const dotenv = require('dotenv');
 
 dotenv.config();
-
-
-
-
 //Usuarios
 app.get('/',usuariosControllers.getUsuarios);
 app.post('/usuarios',usuariosControllers.postUsuarios);

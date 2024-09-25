@@ -2,9 +2,9 @@ const db = require('../dataBase/dataBase');
 
 
 const vendas = {
-    getVendasModel: async () => {
+    getVendasModel: async (vendas) => {
         try {
-            const resultadoVendas  = await db.query('select * from vendas');
+            const resultadoVendas  = await db.query('select * from vendas '+vendas);
            
             
             if (resultadoVendas.rowCount == 0) {
