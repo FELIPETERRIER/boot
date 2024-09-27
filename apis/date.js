@@ -9,5 +9,7 @@ const horAtual = () =>{
     let foi = new Date().toLocaleTimeString()
     return(foi)
 }
+
+
 module.exports = {dataAtual,horAtual}
 
