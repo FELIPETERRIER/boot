@@ -1,8 +1,9 @@
 
 const dataAtual = () => {
-   let oi = new Date().toLocaleDateString();
-   return(oi)
-  
+   let oi = new Date().toLocaleDateString("pt-BR");
+   return oi
+ 
+   
    
 }
 const horAtual = () =>{

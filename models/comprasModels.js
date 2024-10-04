@@ -6,7 +6,8 @@ const compras = {
     getComprasModel: async () => {
         try {
             console.log(data.dataAtual());
-            console.log(data.horAtual())
+
+           console.log(data.horAtual())
 
             const resultadoCompras  = await db.query('select * from compras');
            
