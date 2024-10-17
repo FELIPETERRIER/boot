@@ -1,14 +1,24 @@
 
 const dataAtual = () => {
-   let oi = new Date().toLocaleDateString("pt-BR");
-   return oi
+   let dataCompra = new Date().toLocaleDateString("pt-BR");
+   return dataCompra
  
    
    
 }
 const horAtual = () =>{
-    let foi = new Date().toLocaleTimeString()
-    return(foi)
+    const dataHora = new Date();
+    const opcoes = {
+      timeZone: 'America/Sao_Paulo',
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+    };
+    const dataHoraBrasil = dataHora.toLocaleString('pt-BR', opcoes);
+    return dataHoraBrasil
 }
 
 
