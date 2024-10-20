@@ -20,16 +20,18 @@ const compras = {
             throw error;
         }
     },
-    postComprasModel: async (compras,nome) => {
+    postComprasModel: async (compra_realizadas) => {
         try {
-            const comprasUsuario = Object.values(compras)
+            const data_compra = data.dataAtual()
+            const hora_compra = data.horAtual()            
+            let valores = Object.values(compra_realizadas);         
             
-            const resultadoCompras  = await db.query('INSERT into compras (nome) VALUES($1)returning ID  ',comprasUsuario);  
+            const resultadoCompras  = await db.query('INSERT INTO compras(nome_moeda,valor_compra_reais,quantidade_btc) VALUES($1,$2,$3)returning '  ,valores+ ' ' +data_compra+' '+hora_compra);  
             
             if (resultadoCompras.rowCount == 0) {
                 throw "Falha no cadastro do usuario"
             }
-            return resultadoCompras.rows;
+            return resultadoCompras;
         } catch (error) {
             throw error;
         }

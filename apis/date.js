@@ -9,10 +9,7 @@ const dataAtual = () => {
 const horAtual = () =>{
     const dataHora = new Date();
     const opcoes = {
-      timeZone: 'America/Sao_Paulo',
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric',
+      timeZone: 'America/Sao_Paulo',      
       hour: 'numeric',
       minute: 'numeric',
       second: 'numeric',

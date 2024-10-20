@@ -1,5 +1,5 @@
 const compras = require('../models/comprasModels');
-
+    
 
 
 const getCompras = async (req, res) => {
@@ -19,10 +19,10 @@ const getCompras = async (req, res) => {
     }
 }
 const postCompras = async (req, res) => {
-    const compras= {...req.body}    
+        const compra_realizadas ={...req.body}
     try {
 
-        const postCompras = await compras.postComprasModel(compras);
+        const postCompras = await compras.postComprasModel(compra_realizadas);
         res.status(200).json(postCompras);
 
     } catch (error) {
