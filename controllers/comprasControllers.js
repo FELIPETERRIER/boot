@@ -19,10 +19,11 @@ const getCompras = async (req, res) => {
     }
 }
 const postCompras = async (req, res) => {
-        const compra_realizadas ={...req.body}
+        const compra_realizada ={...req.body}
+        console.log(compra_realizada)
     try {
 
-        const postCompras = await compras.postComprasModel(compra_realizadas);
+        const postCompras = await compras.postComprasModel(compra_realizada);
         res.status(200).json(postCompras);
 
     } catch (error) {

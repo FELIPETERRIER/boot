@@ -1,6 +1,11 @@
 
 const dataAtual = () => {
-   let dataCompra = new Date().toLocaleDateString("pt-BR");
+  const opcoes = {
+    timeZone: 'America/Sao_Paulo'    
+    
+  };
+   let dataCompra = new Date().toLocaleString("en-US",opcoes);
+
    return dataCompra
  
    
