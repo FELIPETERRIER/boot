@@ -5,9 +5,7 @@ const data = require('../apis/date')
 const compras = {
     getComprasModel: async () => {
         try {
-            console.log(data.dataAtual());
-
-            console.log(data.horAtual())
+            
 
             const resultadoCompras  = await db.query('select * from compras');
            
@@ -22,12 +20,13 @@ const compras = {
     },
     postComprasModel: async (compra_realizada) => {
         try {
-            const data_compra = data.dataAtual()                           
+            const data_compra = data.dataAtual()   
+            console.log(data_compra)                        
             let valores = Object.values(compra_realizada);  
             valores.push(data_compra);     
                    
             
-            const resultadoCompras  = await db.query("INSERT INTO compras(nome_moeda,valor_compra_reais,quantidade_btc,date_compra)"+
+            const resultadoCompras  = await db.query("INSERT INTO compras(moeda,valor_em_real,quantidade,data_compra)"+
                 "VALUES ($1,$2,$3,$4)",valores); 
             
             if (resultadoCompras.rowCount == 0) {

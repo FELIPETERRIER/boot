@@ -1,10 +1,12 @@
 const db = require('../dataBase/dataBase');
+const data = require('../apis/date')
 
 
 const vendas = {
-    getVendasModel: async (vendas) => {
+    getVendasModel: async () => {
         try {
-            const resultadoVendas  = await db.query('select * from vendas '+vendas);
+          
+            const resultadoVendas  = await db.query('select * from vendas');
            
             
             if (resultadoVendas.rowCount == 0) {
@@ -15,20 +17,24 @@ const vendas = {
             throw error;
         }
     },
-    /*postVendasModel: async (vendas,nome) => {
+    postVendasModel: async (venda_realizada) => {
         try {
-            const vendasUsuario = Object.values(vendas)
+            const data_venda = data.dataAtual()                           
+            let valores = Object.values(venda_realizada);  
+            valores.push(data_venda);     
+                   
             
-            const resultadoVendas  = await db.query('INSERT into vendas (moeda,valor_em_real,quantidade) VALUES($1,$2,$3)returning ID  ',vendasUsuario);  
+            const resultadoVendas  = await db.query("INSERT INTO vendas(moeda,valor_em_real,quantidade,data_venda)"+
+                "VALUES ($1,$2,$3,$4)",valores); 
             
             if (resultadoVendas.rowCount == 0) {
-                throw "Falha na venda"
+                throw "Falha no cadastro do usuario"
             }
-            return resultadoVendas.rows;
+            return resultadoVendas;
         } catch (error) {
             throw error;
         }
-    }*/
+    }
     
 }
 

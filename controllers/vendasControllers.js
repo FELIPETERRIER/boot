@@ -17,10 +17,11 @@ const getVendas = async (req, res) => {
     }
 }
 const postVendas = async (req, res) => {
-    const vendas= {...req.body}    
+    const venda_realizada ={...req.body}
+        console.log(venda_realizada)
     try {
 
-        const postVendas = await vendas.postVendasModel(vendas);
+        const postVendas = await vendas.postVendasModel(venda_realizada);
         res.status(200).json(postVendas);
 
     } catch (error) {
