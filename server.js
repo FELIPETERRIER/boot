@@ -4,6 +4,7 @@ const port= 3001;
 const usuariosControllers = require( './controllers/usuariosControllers');
 const comprasControllers = require('./controllers/comprasControllers');
 const vendasControllers = require('./controllers/vendasControllers');
+const moedasControllers = require('./controllers/cadastroControllersMoedas');
 
 
 app.use(express.json())
@@ -23,6 +24,10 @@ app.post('/compras',comprasControllers.postCompras);
 app.get('/vendas',vendasControllers.getVendas);
 app.post('/vendas',vendasControllers.postVendas);
 
+//cadastro moedas
+app.get('/moedas',moedasControllers.getCadastroMoedas);
+app.post('/moedas',moedasControllers.postCadastroMoedas);
+app.put('/moedas/:id_moeda',moedasControllers.putCadastroMoedas);
 
 app.listen(port,()=>{
     console.log("Servidor rodando na porta " +port)

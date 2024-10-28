@@ -13,7 +13,7 @@ const compras = {
             if (resultadoCompras.rowCount == 0) {
                 throw "Nenhuma compra realizada!"
             }
-            return resultadoCompras.rowCount;
+            return resultadoCompras.rows;
         } catch (error) {
             throw error;
         }

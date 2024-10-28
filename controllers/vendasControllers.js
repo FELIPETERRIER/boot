@@ -18,7 +18,7 @@ const getVendas = async (req, res) => {
 }
 const postVendas = async (req, res) => {
     const venda_realizada ={...req.body}
-        console.log(venda_realizada)
+        
     try {
 
         const postVendas = await vendas.postVendasModel(venda_realizada);

@@ -7,6 +7,7 @@ const vendas = {
         try {
           
             const resultadoVendas  = await db.query('select * from vendas');
+            console.log(resultadoVendas)
            
             
             if (resultadoVendas.rowCount == 0) {
@@ -24,8 +25,9 @@ const vendas = {
             valores.push(data_venda);     
                    
             
-            const resultadoVendas  = await db.query("INSERT INTO vendas(moeda,valor_em_real,quantidade,data_venda)"+
+            const resultadoVendas  = await db.query("INSERT INTO vendas(valor_em_real,quantidade,id_moeda,data_venda)"+
                 "VALUES ($1,$2,$3,$4)",valores); 
+               
             
             if (resultadoVendas.rowCount == 0) {
                 throw "Falha no cadastro do usuario"
