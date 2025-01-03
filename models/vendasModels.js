@@ -41,3 +41,6 @@ const vendas = {
 }
 
 module.exports = vendas
+
+
+

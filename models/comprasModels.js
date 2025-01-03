@@ -26,7 +26,7 @@ const compras = {
             valores.push(data_compra);     
                    
             
-            const resultadoCompras  = await db.query("INSERT INTO compras(moeda,valor_em_real,quantidade,data_compra)"+
+            const resultadoCompras  = await db.query("INSERT INTO compras(nome_moeda,valor_compra_reais,quantidade_btc,date_compra)"+
                 "VALUES ($1,$2,$3,$4)",valores); 
             
             if (resultadoCompras.rowCount == 0) {

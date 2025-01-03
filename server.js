@@ -27,7 +27,8 @@ app.post('/vendas',vendasControllers.postVendas);
 //cadastro moedas
 app.get('/moedas',moedasControllers.getCadastroMoedas);
 app.post('/moedas',moedasControllers.postCadastroMoedas);
-app.put('/moedas/:id_moeda',moedasControllers.putCadastroMoedas);
+app.put('/moedas/:id_moedas',moedasControllers.putCadastroMoedas);
+app.delete('/moedas/:id_moedas',moedasControllers.delCadastroMoedas)
 
 app.listen(port,()=>{
     console.log("Servidor rodando na porta " +port)

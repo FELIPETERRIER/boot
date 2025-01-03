@@ -50,6 +50,26 @@ const putCadastroMoedas = async (req, res) => {
     
         }
 }
+    const delCadastroMoedas = async (req, res) => {
+        const deleteMoedas = { ...req.params }
+           try {
+        
+            const delMoedas = await moedas.deleteMoedasModel(deleteMoedas);
+            res.status(200).json(
+            {
+                dados: delMoedas
+            }
+            );
+        
+            } catch (error) {
+                console.log(error);
+                res.status(500).json({
+                codigoErro: 500,
+                mensagem: error
+            });
+        
+        };
+}
 
 
-module.exports = {getCadastroMoedas,postCadastroMoedas,putCadastroMoedas}
+module.exports = {getCadastroMoedas,postCadastroMoedas,putCadastroMoedas,delCadastroMoedas}
