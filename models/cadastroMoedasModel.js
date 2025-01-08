@@ -1,3 +1,4 @@
+
 const db = require('../dataBase/dataBase');
 
 
@@ -6,7 +7,6 @@ const moedas = {
     getMoedasModel: async () => {
         try {
             
-
             const moedasCadastradas  = await db.query('select * from moedas');
            
             

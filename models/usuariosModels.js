@@ -1,10 +1,13 @@
 const db = require('../dataBase/dataBase');
+const cpfOK = require('../apis/cpfValidado');
+
+
 
 
 const usuarios = {
     getUsuarioModel: async (usuario) => {
         try {
-          
+           
             const resultadoUsuario  = await db.query('select * from usuarios', +usuario);  
             
             if (resultadoUsuario.rowCount == 0) {
