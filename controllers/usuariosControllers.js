@@ -1,13 +1,12 @@
 const usuarios = require('../models/usuariosModels');
+//const cpf1 = require('../models/usuariosModels');
+const cpfOK = require('../apis/cpfValidado')
 
-//const validaCpf = require('../apis/cpfValidado');
 
 
 const getUsuarios = async (req, res) => {
     try {
-        const usuario= {...req.body};
-       
-        
+        const usuario= {...req.body};       
         
         const todosUsuarios = await usuarios.getUsuarioModel(usuario);
         res.status(200).json(todosUsuarios);
@@ -25,9 +24,14 @@ const postUsuarios = async (req, res) => {
     const usuario= {...req.body}    
     try {
        
-        /*const cpfOK = validaCpf.validaCpf();
-        console.log(cpfOK)*/
-        const postUsuarios = await usuarios.postUsuarioModel(usuario);
+      const cpf1 =usuario.cpf      
+      const tata =cpfOK.validaCpf(cpf1);
+      console.log(tata)
+       
+            
+            
+        
+        const postUsuarios = await usuarios.postUsuarioModel(usuario);      
         res.status(200).json(postUsuarios);
 
     } catch (error) {

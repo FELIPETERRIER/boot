@@ -1,5 +1,6 @@
-const validaCpf = {  
-    loginCpf:async(cpf)=>{   
+const validaCpf = (cpf) => { 
+    
+    
     const invalido ='00000000000'    
     
     let multiplicador = 10;
@@ -27,13 +28,13 @@ const validaCpf = {
     let dig = (String(dig1) + String(dig2));
     
     if (cpf.substring(9, 11) == dig && cpf != invalido) {
-        return true;
+        return "ok";
     }   
     else {
-        return false;        
+        return "cpf invalido";        
     }
   
 }
-}
-module.exports = validaCpf
+
+module.exports ={validaCpf}
 
