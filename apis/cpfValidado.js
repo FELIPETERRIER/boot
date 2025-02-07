@@ -28,10 +28,10 @@ const validaCpf = (cpf) => {
     let dig = (String(dig1) + String(dig2));
     
     if (cpf.substring(9, 11) == dig && cpf != invalido) {
-        return "ok";
+        return true;
     }   
     else {
-        return "cpf invalido";        
+        return false;        
     }
   
 }

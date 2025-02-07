@@ -1,6 +1,5 @@
 const usuarios = require('../models/usuariosModels');
-//const cpf1 = require('../models/usuariosModels');
-const cpfOK = require('../apis/cpfValidado')
+const cpfOK = require('../apis/cpfValidado');
 
 
 
@@ -21,25 +20,17 @@ const getUsuarios = async (req, res) => {
     }
 }
 const postUsuarios = async (req, res) => {
-    const usuario= {...req.body}    
-    try {
-       
-      const cpf1 =usuario.cpf      
-      const tata =cpfOK.validaCpf(cpf1);
-      console.log(tata)
-       
-            
-            
-        
+    const usuario= {...req.body}  
+    const cpfParaValidar =usuario.cpf      
+    const cpfValidado =cpfOK.validaCpf(cpfParaValidar);   
+    if(cpfValidado === true) {       
+       {         
         const postUsuarios = await usuarios.postUsuarioModel(usuario);      
-        res.status(200).json(postUsuarios);
+        res.status(200).json(postUsuarios);}     
+       }
 
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({
-            codigoErro: 500,
-            mensagem: error
-        });
+        else  {
+       console.log( "Cpf Inválido!!")
 
     }
 }
