@@ -1,5 +1,4 @@
 const db = require('../dataBase/dataBase');
-const cpfOK = require('../apis/cpfValidado')
 const usuarios = {
     getUsuarioModel: async (usuario) => {
         try {
@@ -14,7 +13,7 @@ const usuarios = {
             throw error;
         }
     },
-    postUsuarioModel: async (usuario,nome,cpfOK) => {
+    postUsuarioModel: async (usuario) => {
         try {
            
             const cadastroUsuario = Object.values(usuario);
