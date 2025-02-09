@@ -22,11 +22,12 @@ const getUsuarios = async (req, res) => {
 }
 const postUsuarios = async (req, res) => {
     const usuario= {...req.body}  
-    const cpfParaValidar =usuario.cpf      
+    const cpfParaValidar =usuario.cpf    
     const cpfValidado =cpfOK.validaCpf(cpfParaValidar);
-    const nomeParaValidar = usuario.nome;  
-    const nomeValidado = nomeOK.validaNome(nomeParaValidar);   
-    if(cpfValidado && nomeValidado   === true) {       
+    const nomeParaValidar = usuario.nome;    
+    const nomeValidado = nomeOK.validaNome(nomeParaValidar); 
+    console.log(nomeValidado)   
+    if(cpfValidado && nomeValidado === true) {       
        {         
         const postUsuarios = await usuarios.postUsuarioModel(usuario);      
         res.status(200).json(postUsuarios);}     
