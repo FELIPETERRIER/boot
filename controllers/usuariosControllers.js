@@ -4,6 +4,7 @@ const nomeOK = require('../apis/validaNome')
 
 
 
+
 const getUsuarios = async (req, res) => {
     try {
         const usuario= {...req.body};       
@@ -21,11 +22,17 @@ const getUsuarios = async (req, res) => {
     }
 }
 const postUsuarios = async (req, res) => {
-    const usuario= {...req.body}  
+    const usuario= {...req.body}
+
     const cpfParaValidar =usuario.cpf    
     const cpfValidado =cpfOK.validaCpf(cpfParaValidar);
-    const nomeParaValidar = usuario.nome;    
-    const nomeValidado = nomeOK.validaNome(nomeParaValidar); 
+
+    let nomeParaValidar = usuario.nome;   
+    const nomeValidado = nomeOK.validaNome(nomeParaValidar);
+    console.log(nomeValidado)
+    
+    
+    
     console.log(nomeValidado)   
     if(cpfValidado && nomeValidado === true) {       
        {         

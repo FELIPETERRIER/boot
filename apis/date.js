@@ -5,7 +5,6 @@ const dataAtual = () => {
     
   };
    let dataCompra = new Date().toLocaleString("en-US",opcoes);
-
    return dataCompra
  
    

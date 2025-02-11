@@ -1,16 +1,14 @@
 const validaNome = (nome) =>{
-let nome1 = nome.split(' ')
-nome1.forEach((e)=>{
-    if(e.length>=2){       
-      console.log(e)
-    }else{
-        return false
-       
-    }
-    
-   
-})}
 
+let nome1 = nome.split(' ')
+for (const nome2 of nome1) {
+      if(nome2.length > 2){
+        return true
+    }else{
+      return false
+    }
+  }
+}
 module.exports={validaNome}
 
 
