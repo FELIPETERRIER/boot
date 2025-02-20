@@ -28,12 +28,8 @@ const postUsuarios = async (req, res) => {
     const cpfValidado =cpfOK.validaCpf(cpfParaValidar);
 
     let nomeParaValidar = usuario.nome;   
-    const nomeValidado = nomeOK.validaNome(nomeParaValidar);
-    console.log(nomeValidado)
-    
-    
-    
-    console.log(nomeValidado)   
+    const nomeValidado = nomeOK.validaNome(nomeParaValidar);    
+
     if(cpfValidado && nomeValidado === true) {       
        {         
         const postUsuarios = await usuarios.postUsuarioModel(usuario);      
@@ -42,7 +38,6 @@ const postUsuarios = async (req, res) => {
 
         else  {
        console.log( "Credenciais invalidas")
-
     }
         
     
