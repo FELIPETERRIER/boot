@@ -1,16 +1,16 @@
-let senha = 'f3liPe';
 
 
-const validaSenha = () =>{
+
+const validaSenha = (senha) =>{
     if(senha.length >= 6 && senha.match(/[A-Z]/g) && senha.match(/\W|_/) ){
+        return true
     
-    console.log(senha)
     }else{
-        console.log('senha invalida')
+        return false
     }
 
 
 }
-validaSenha()
+module.exports = {validaSenha}
 
 

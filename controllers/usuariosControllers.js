@@ -1,13 +1,15 @@
 const usuarios = require('../models/usuariosModels');
 const cpfOK = require('../apis/cpfValidado');
-const nomeOK = require('../apis/validaNome')
+const nomeOK = require('../apis/validaNome');
+const senhaOK = require('../apis/validaSenha');
 
 
 
 
 const getUsuarios = async (req, res) => {
     try {
-        const usuario= {...req.body};       
+        const usuario= {...req.body}; 
+
         
         const todosUsuarios = await usuarios.getUsuarioModel(usuario);
         res.status(200).json(todosUsuarios);
@@ -24,13 +26,15 @@ const getUsuarios = async (req, res) => {
 const postUsuarios = async (req, res) => {
     const usuario= {...req.body}
 
-    const cpfParaValidar =usuario.cpf    
+    const cpfParaValidar =usuario.cpf;
+    const senhaParaValdar = usuario.senha;    
     const cpfValidado =cpfOK.validaCpf(cpfParaValidar);
+    const senhaValidada = senhaOK.validaSenha(senhaParaValdar)
 
     let nomeParaValidar = usuario.nome;   
     const nomeValidado = nomeOK.validaNome(nomeParaValidar);    
 
-    if(cpfValidado && nomeValidado === true) {       
+    if(cpfValidado && nomeValidado === true && senhaValidada === true) {       
        {         
         const postUsuarios = await usuarios.postUsuarioModel(usuario);      
         res.status(200).json(postUsuarios);}     
