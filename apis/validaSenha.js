@@ -1,8 +1,8 @@
 
 
 
-const validaSenha = (senha) =>{
-    if(senha.length >= 6 && senha.match(/[A-Z]/g) && senha.match(/\W|_/) ){
+const validaSenha = (password) =>{
+    if(password.length >= 6 && password.match(/[A-Z]/g) && password.match(/\W|_/) ){
         return true
     
     }else{

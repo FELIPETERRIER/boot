@@ -9,7 +9,6 @@ const senhaOK = require('../apis/validaSenha');
 const getUsuarios = async (req, res) => {
     try {
         const usuario= {...req.body}; 
-
         
         const todosUsuarios = await usuarios.getUsuarioModel(usuario);
         res.status(200).json(todosUsuarios);
@@ -26,10 +25,11 @@ const getUsuarios = async (req, res) => {
 const postUsuarios = async (req, res) => {
     const usuario= {...req.body}
 
-    const cpfParaValidar =usuario.cpf;
-    const senhaParaValdar = usuario.senha;    
+    const cpfParaValidar =usuario.cpf;  
+    const senhaParaValidar = usuario.password;    
     const cpfValidado =cpfOK.validaCpf(cpfParaValidar);
-    const senhaValidada = senhaOK.validaSenha(senhaParaValdar)
+    const senhaValidada = senhaOK.validaSenha(senhaParaValidar)
+    console.log(senhaValidada)
 
     let nomeParaValidar = usuario.nome;   
     const nomeValidado = nomeOK.validaNome(nomeParaValidar);    
