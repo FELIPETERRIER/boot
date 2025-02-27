@@ -5,6 +5,7 @@ const usuariosControllers = require( './controllers/usuariosControllers');
 const comprasControllers = require('./controllers/comprasControllers');
 const vendasControllers = require('./controllers/vendasControllers');
 const moedasControllers = require('./controllers/cadastroControllersMoedas');
+const loginControllers = require('./controllers/loginControllers');
 
 
 app.use(express.json())
@@ -31,7 +32,7 @@ app.put('/moedas/:id_moedas',moedasControllers.putCadastroMoedas);
 app.delete('/moedas/:id_moedas',moedasControllers.delCadastroMoedas);
 
 //login
-/*app.post('/login')*/
+app.post('/login',loginControllers.loginUsuarios )
 
 app.listen(port,()=>{
     console.log("Servidor rodando na porta " +port)

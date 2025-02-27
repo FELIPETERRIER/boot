@@ -1,18 +1,26 @@
+const db = require('../dataBase/dataBase')
+const login ={
+
 postLoginUsuarioModel: async (usuario) => {
-    try {
+    
        
         const loginUsuario = Object.values(usuario);
+        
       
-        const loginOkUsuario  = await db.query('INSERT into usuarios (nome,password) VALUES($1,$2)',loginUsuario);
+        const loginOkUsuario  = await db.query('SELECT (nome,password) from usuarios',+usuario);
+
        
        
-        if (loginOkUsuario.rowCount == 0) {
-            throw "Falha no cadastro do usuario"
-        }
-        return loginOkUsuario.rows;
-    } catch (error) {
-        throw error;
+        /*if (loginOkUsuario == loginUsuario) {
+           
+            console.log('certo miseravi!')
+        }else{
+            console.log('energumeno')
+        }*/
     }
 }
-module.exports = postLoginUsuarioModel
+
+
+
+module.exports = login
 
