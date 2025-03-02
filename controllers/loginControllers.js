@@ -3,7 +3,7 @@ const login = require('../models/loginModel');
 const loginUsuarios = async (req,res) =>{
     try {
         const usuario= {...req.body};
-        //console.log(usuario+'baaba') 
+         
         
         const loginUsuario = await login.postLoginUsuarioModel(usuario);        
         res.status(200).json(loginUsuario);
