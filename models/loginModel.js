@@ -18,8 +18,7 @@ postLoginUsuarioModel: async (usuario) => {
         
         if (encontrado) {
             const userID = loginUsuario[2];         
-            const acessToken = jwt.sign(userID,SECRET/*,{expiresIn:300}*/)
-            console.log(acessToken)
+            const acessToken = jwt.sign(userID,SECRET/*,{expiresIn:300}*/)           
         } else {
 
             console.log('CPF ou senha incorretos.');
