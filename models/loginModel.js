@@ -1,10 +1,15 @@
 const db = require('../dataBase/dataBase');
 const jwt = require('jsonwebtoken');
+
+
+
+
+
 const login ={
 
 postLoginUsuarioModel: async (usuario) => {
     
-       
+        const SECRET = process.env.SECRET
         const loginUsuario = Object.values(usuario);      
         const loginOkUsuario  = await db.query('SELECT cpf,password,id FROM usuarios');       
         const encontrado = loginOkUsuario.rows.some(row => 
@@ -12,11 +17,17 @@ postLoginUsuarioModel: async (usuario) => {
         );  
         
         if (encontrado) {
-            const userID = loginUsuario[2];            
-            console.log(userID);
-            //jwt.sign(userID),SECRET,
+            const userID = loginUsuario[2];         
+            const acessToken = jwt.sign(userID,SECRET/*,{expiresIn:300}*/)
+            console.log(acessToken)
         } else {
+
             console.log('CPF ou senha incorretos.');
+            console.log(error);
+        res.status(401).json({
+            codigoErro: 401,
+            mensagem: error
+        });
         }
     }
 }
