@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 
 const login ={
 
-postLoginUsuarioModel: async (usuario) => {
+getLoginUsuarioModel: async (usuario) => {
     
         const SECRET = process.env.SECRET
         const loginUsuario = Object.values(usuario);      
@@ -18,7 +18,8 @@ postLoginUsuarioModel: async (usuario) => {
         
         if (encontrado) {
             const userID = loginUsuario[2];         
-            const acessToken = jwt.sign(userID,SECRET/*,{expiresIn:300}*/)           
+            const acessToken = jwt.sign(userID,SECRET/*,{expiresIn:300}*/)       
+            console.log(acessToken)    
         } else {
 
             console.log('CPF ou senha incorretos.');

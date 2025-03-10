@@ -8,6 +8,7 @@ const moedasControllers = require('./controllers/cadastroControllersMoedas');
 const loginControllers = require('./controllers/loginControllers');
 
 
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
 const dotenv = require('dotenv');
@@ -32,7 +33,7 @@ app.put('/moedas/:id_moedas',moedasControllers.putCadastroMoedas);
 app.delete('/moedas/:id_moedas',moedasControllers.delCadastroMoedas);
 
 //login
-app.post('/login',loginControllers.loginUsuarios )
+app.get('/login',loginControllers.loginUsuarios )
 
 app.listen(port,()=>{
     console.log("Servidor rodando na porta " +port)
